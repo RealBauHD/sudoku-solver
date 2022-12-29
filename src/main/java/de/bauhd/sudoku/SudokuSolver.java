@@ -7,10 +7,8 @@ public final class SudokuSolver {
     private static final SudokuFileHandler FILE_HANDLER = new SudokuFileHandler();
 
     public static void main(String[] args) {
-        final var time = System.currentTimeMillis();
         final var solver = new SudokuSolver(Path.of(System.getProperty("sudoku.file", "sudoku.txt")));
         solver.solve();
-        System.out.println(System.currentTimeMillis() - time);
         FILE_HANDLER.write(Path.of(System.getProperty("sudoku.solved", "solved_sudoku.txt")), solver.grid);
     }
 
