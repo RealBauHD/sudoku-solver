@@ -1,4 +1,4 @@
-package de.bauhd.sudoku;
+package de.bauhd.sudoku.lib;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,5 +1,6 @@
 package de.bauhd.sudoku;
 
+import de.bauhd.sudoku.lib.SudokuSolver;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

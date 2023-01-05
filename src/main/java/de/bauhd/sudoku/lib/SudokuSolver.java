@@ -1,27 +1,6 @@
-package de.bauhd.sudoku;
+package de.bauhd.sudoku.lib;
 
-import java.nio.file.Path;
-
-public final class SudokuSolver {
-
-    private static final SudokuFileHandler FILE_HANDLER = new SudokuFileHandler();
-
-    public static void main(String[] args) {
-        final var solver = new SudokuSolver(Path.of(System.getProperty("sudoku.file", "sudoku.txt")));
-        solver.solve();
-        FILE_HANDLER.write(Path.of(System.getProperty("sudoku.solved", "solved_sudoku.txt")), solver.grid);
-    }
-
-    private final byte[][] grid;
-
-    SudokuSolver(final Path path) {
-        this(FILE_HANDLER.read(path));
-    }
-
-    SudokuSolver(final byte[][] grid) {
-        this.grid = grid;
-        this.solve();
-    }
+public record SudokuSolver(byte[][] grid) {
 
     public boolean solve() {
         for (byte y = 0; y < 9; y++) {
@@ -62,9 +41,5 @@ public final class SudokuSolver {
             }
         }
         return true;
-    }
-
-    public byte[][] grid() {
-        return this.grid;
     }
 }
